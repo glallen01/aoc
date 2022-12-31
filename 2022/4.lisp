@@ -55,11 +55,6 @@
                        (loop for line = (read-line in nil)
                              while line
                              collect line)))
-(defparameter *priorities*
-  (alist-hash-table
-   (loop for c across "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-         for i from 1 collect (cons c i))))
-
 (defun part1 (data)
   (count-if #'true? (pairs-to-contained data)))
 
