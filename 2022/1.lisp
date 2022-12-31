@@ -1,12 +1,14 @@
+#!/usr/bin/env sbcl --script
+(require 'uiop)
 (defpackage :day1
-  (:use :common-lisp)
+  (:use :cl)
   (:import-from :uiop/utility :split-string))
 (in-package :day1)
 
 (defparameter *data* (with-open-file (in "1.input.txt")
-                 (loop for line = (read-line in nil)
-                       while line
-                       collect line)))
+                       (loop for line = (read-line in nil)
+                             while line
+                             collect line)))
 
 (defun elfsums (xs)
   (loop with sublist
@@ -21,6 +23,6 @@
   (loop for x in xs
         maximizing x))
 
-(print (format t "Max elf calories: ~A~%" (maxelf (elfsums *data*))))
-(print (format t "Sum of top three elves: ~A~%"
-               (apply '+ (subseq (sort (elfsums *data*) '>) 0 3))))
+(format t "Max elf calories: ~A~%" (maxelf (elfsums *data*)))
+(format t "Sum of top three elves: ~A~%"
+        (apply '+ (subseq (sort (elfsums *data*) '>) 0 3)))
