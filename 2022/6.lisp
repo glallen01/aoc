@@ -6,12 +6,15 @@
   (not (= (length list)
           (length (delete-duplicates list)))))
 
+;; well, now that I've figured this out,
+;; this is way more elegant way to do basically the same thing: https://github.com/julian3ng/aoc-lisp/blob/b10bda100425f170216c65aa6e0a29e0335635d3/2022/problem-6.lisp#L19
+
 (defun find-start-of-packet (msg)
   (loop for i from 0 to (- (length msg) 4)
         do (let* ((segment
-                    (list (char msg (+ 0 i)) 
-                          (char msg (+ 1 i)) 
-                          (char msg (+ 2 i)) 
+                    (list (char msg (+ 0 i))
+                          (char msg (+ 1 i))
+                          (char msg (+ 2 i))
                           (char msg (+ 3 i))))
                   (test-key
                     (list-with-dup? segment)))

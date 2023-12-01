@@ -1,0 +1,7 @@
+- parsing libraries
+  - https://sr.ht/~shunter/parsnip/
+  - https://github.com/mrossini-ethz/parseq
+  - https://www.rangakrish.com/index.php/2018/09/02/experimenting-with-lisp-based-monadic-parser-combinator/
+    - https://github.com/massung/parse
+  - https://github.com/Ramarren/cl-parser-combinators
+
