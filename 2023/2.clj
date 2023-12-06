@@ -32,12 +32,9 @@
   (let [game (Long/parseLong (line->game line))]
     (if-not
         (some true?
-              ;; (flatten
               (for [[colorkey max] maxes]
                 (let [color (name colorkey)]
-                  (color-exceeds-max? max color line)))
-              ;; )
-              )
+                  (color-exceeds-max? max color line))))
         game)))
 
 (defn aoc2a [maxes lines]
